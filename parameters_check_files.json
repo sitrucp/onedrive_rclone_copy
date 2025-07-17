@@ -1,0 +1,78 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "availabilityZones": {
+      "value": []
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "containerName": {
+      "value": "AZURE_CONTAINER_INSTANCE_NAME_HERE"
+    },
+    "imageType": {
+      "value": "Private"
+    },
+    "imageName": {
+      "value": "rclone/rclone:latest"
+    },
+    "osType": {
+      "value": "Linux"
+    },
+    "numberCpuCores": {
+      "value": "2"
+    },
+    "memory": {
+      "value": "2.5"
+    },
+    "restartPolicy": {
+      "value": "Never"
+    },
+    "sku": {
+      "value": "Standard"
+    },
+    "imageRegistryLoginServer": {
+      "value": "index.docker.io"
+    },
+    "imageUsername": {
+      "value": "DOCKER_HUB_USERNAME_HERE"
+    },
+    "imagePassword": {
+      "value": "DOCKER_HUB_PW_HERE"
+    },
+    "environmentVariable0": {
+      "value": "BASE64_ENCONDED_CONFIG_HERE"
+    },
+    "commandOverrideArray": {
+        "value": [
+            "sh",
+            "-c",
+            "mkdir -p /root/.config/rclone && echo \"$RCLONE_CONF_B64\" | base64 -d > /root/.config/rclone/rclone.conf && unset RCLONE_CONF_B64 && rclone check RCLONE_ONEDRIVE_SOURCE_NAME_HERE: RCLONE_ONEDRIVE_TARGET_NAME_HERE: --combined /root/rclone_check_report.txt --exclude 'Personal Vault/**' --log-level INFO ; tail -f /dev/null"
+        ]
+    },
+    "ipAddressType": {
+        "value": "Private"
+        },
+        "ports": {
+        "value": [
+            { "protocol": "TCP", "port": 80 }
+        ]
+    },
+    "subnetResourceId": {
+      "value": "/subscriptions/AZURE_SUBSCRIPTION_ID_HERE/resourceGroups/AZURE_RESOURCE_GROUP_NAME_HERE/providers/Microsoft.Network/virtualNetworks/AZURE_VNET_NAME_HERE/subnets/default"
+    },
+    "logAnalyticsWorkspaceId": {
+      "value": "/subscriptions/AZURE_SUBSCRIPTION_ID_HERE/resourceGroups/AZURE_RESOURCE_GROUP_NAME_HERE/providers/Microsoft.OperationalInsights/workspaces/AZURE_LOG_ANALYTICS_NAME_HERE"
+    },
+    "logAnalyticsCustomerId": {
+      "value": "AZURE_LOG_ANALYTICS_CUSTOMER_NAME_HERE"
+    },
+    "logAnalyticsPrimarySharedKey": {
+      "value": "AZURE_LOG_ANALYTICS_SHARED_KEY_HERE"
+    },
+    "omsSku": {
+      "value": "standalone"
+    }
+  }
+}
