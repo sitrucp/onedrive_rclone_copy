@@ -8,7 +8,8 @@ I migrated all 295 GB / 400k files from a Microsoft 365 Business Standard OneDri
 This repo contains:
 
 - `template.json` – Azure Resource Manager template to create the ACI
-- `parameters.json` – Parameter file with all required values (tokens removed)
+- `parameters_copy_files.json` – Parameter file for rclone copy job (with all required values eg tokens removed)
+- `parameters_check_files.json` – Parameter file for rclone check job (with all required values eg tokens removed)
 - Sample `commandOverrideArray` for both `rclone copy` and `rclone check`
 - README and blog link
 
